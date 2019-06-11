@@ -18,8 +18,23 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+main {
+  margin: auto;
+  background-color: white;
+  width: 450px;
+  height: 800px;
+  padding-top: 140px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @font-face{
+   font-family: 'Roboto Condensed';
+   src: url("https://fonts.google.com/specimen/Roboto+Condensed?selection.family=Roboto+Condensed:300i,400,700i");
+   font-weight: 300;
+ }

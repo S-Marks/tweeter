@@ -1,0 +1,22 @@
+.new-tweet {
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+.box {
+    width: 430px;
+    margin: auto;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.counter {
+    float: right;
+    padding: 5px;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
