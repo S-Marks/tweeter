@@ -102,4 +102,15 @@ $(document).ready(function () {
     }
 
     renderTweets(data);
+
+    $('#new-Tweet').on('submit', (event) => {
+        event.preventDefault();
+        $.post('/tweets', $('#new-Tweet').serialize(), (newTweet) => {
+            createTweetElement(newTweet);
+        })
+    })
+
+    $(function() {
+
+    })
 });
