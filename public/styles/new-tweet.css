@@ -12,11 +12,22 @@
     margin-top: 5px;
 }
 
-.new-tweet .counter {
-    float: right;
+.new-tweet .error {
+    margin: 0px;
     padding: 5px;
+    display: inline;
+    font-style: italic;
+    font-weight: bolder;
+    color: white;
+    background: #ff7171;
+    border-radius: 2px;
 }
 
 .new-tweet h2 {
     margin-bottom: 0px;
+}
+
+.new-tweet .counter {
+    float: right;
+    padding: 5px;
 }

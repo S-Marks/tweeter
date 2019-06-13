@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    //menu bar slide
     $(".new-tweet").hide();
 
     $("#compose").click(function () {

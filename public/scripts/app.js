@@ -62,10 +62,12 @@ $(document).ready(function () {
     $('#new-tweet').on('submit', (event) => {
         event.preventDefault();
         let charCount = $("textArea").val().length;
+
+        $(".error").hide();
         if (!charCount) {
-            alert("Invalid submission.");
+            $(".error").slideDown("slow").text("Invalid Submission").hide();
         } else if (charCount > 140) {
-            alert("Your tweet is too long.");
+            $(".error").slideDown("slow").text("Too many characters.").hide();
         } else {
             $.post('/tweets', $('#new-tweet').serialize(), () => {
                 loadTweets();
