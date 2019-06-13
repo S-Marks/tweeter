@@ -1,76 +1,33 @@
 // calculate time curtosy of steven w
-function time(ts) {
+function whatTime(date) {
 
-    const d = new Date();
-    const nowTs = Math.floor(d.getTime() / 1000);
-    const seconds = nowTs - ts;
-    if (seconds > 2 * 24 * 3600) {
-        return "A few days ago";
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years ago";
     }
-    if (seconds > 24 * 3600) {
-        return "Yesterday";
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months ago";
     }
-    if (seconds > 3600) {
-        return "A few hours ago";
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days ago";
     }
-    if (seconds > 1800) {
-        return "Half an hour ago";
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours ago";
     }
-    if (seconds > 60) {
-        return Math.floor(seconds / 60) + " minutes ago";
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes ago";
     }
-    return "A long time ago"
+    return Math.floor(seconds) + " seconds ago";
 }
 
-$(document).ready(function () {
 
-    const data = [
-        {
-            "user": {
-                "name": "Newton",
-                "avatars": {
-                    "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-                    "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-                    "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-                },
-                "handle": "@SirIsaac"
-            },
-            "content": {
-                "text": "If I have seen further it is by standing on the shoulders of giants"
-            },
-            "created_at": 1461116232227
-        },
-        {
-            "user": {
-                "name": "Descartes",
-                "avatars": {
-                    "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-                    "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-                    "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-                },
-                "handle": "@rd"
-            },
-            "content": {
-                "text": "Je pense , donc je suis"
-            },
-            "created_at": 1461113959088
-        },
-        {
-            "user": {
-                "name": "Johann von Goethe",
-                "avatars": {
-                    "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-                    "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-                    "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-                },
-                "handle": "@johann49"
-            },
-            "content": {
-                "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-            },
-            "created_at": 1461113796368
-        }
-    ];
+$(document).ready(function () {
 
     function createTweetElement(tweetData) {
         const user = $("<article>");
@@ -89,28 +46,39 @@ $(document).ready(function () {
             .text(tweetData.content.text)
             .appendTo(content);
         const footer = $("<footer>").appendTo(user);
+        $("<hr>").appendTo(footer);
         $("<span>")
-            .text(time(tweetData.created_at))
+            .text(whatTime(tweetData.created_at))
             .appendTo(footer);
         return user;
     }
 
     function renderTweets(data) {
         for (let tweet of data) {
-            $(".tweet").append(createTweetElement(tweet));
+            $(".tweet").prepend(createTweetElement(tweet));
         }
     }
 
-    renderTweets(data);
-
-    $('#new-Tweet').on('submit', (event) => {
+    $('#new-tweet').on('submit', (event) => {
         event.preventDefault();
-        $.post('/tweets', $('#new-Tweet').serialize(), (newTweet) => {
-            createTweetElement(newTweet);
+        let charCount = $("textArea").val().length;
+        if (!charCount) {
+            alert("Invalid submission.");
+        } else if (charCount > 140) {
+            alert("Your tweet is too long.");
+        } else {
+            $.post('/tweets', $('#new-tweet').serialize(), () => {
+                loadTweets();
+            })
+        }
+    })
+
+    function loadTweets() {
+        $.getJSON('/tweets', (tweets) => {
+            const $tweet = $('.tweet');
+            $tweet.empty();
+            renderTweets(tweets);
         })
-    })
-
-    $(function() {
-
-    })
+    }
+    loadTweets();
 });

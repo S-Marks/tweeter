@@ -15,3 +15,23 @@
     font-size: 200%;
     line-height: 250%;
 }
+
+#nav-bar div {
+    float: right;
+    margin: 8px;
+}
+
+#nav-bar button {
+    padding: 20px;
+    font-size: large;
+    color: #0d6153;
+    background-color: #d1efea;
+    border: 2px solid #196b5d;
+    border-radius: 10px;
+}
+
+#nav-bar button:hover {
+    color: #094037;
+    border: 2px solid #00c7a7;
+    background-color: #f1fffd;
+}

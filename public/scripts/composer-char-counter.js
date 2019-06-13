@@ -7,6 +7,8 @@ $(document).ready(function () {
         let counter = maxChar - char;
         if (counter < 0) {
             $(".counter").css("color", "red");
+        } else {
+            $(".counter").css("color", "#244751");
         }
         $("textarea").siblings(".counter").text(counter);
     });
