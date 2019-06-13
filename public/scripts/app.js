@@ -65,9 +65,9 @@ $(document).ready(function () {
 
         $(".error").hide();
         if (!charCount) {
-            $(".error").slideDown("slow").text("Invalid Submission").hide();
+            $(".error").slideDown("slow").text("Invalid Submission: Not enough Characters.");
         } else if (charCount > 140) {
-            $(".error").slideDown("slow").text("Too many characters.").hide();
+            $(".error").slideDown("slow").text("Invalid Submission: Too many characters.");
         } else {
             $.post('/tweets', $('#new-tweet').serialize(), () => {
                 loadTweets();
