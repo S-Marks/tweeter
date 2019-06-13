@@ -58,17 +58,19 @@ $(document).ready(function () {
             $(".tweet").prepend(createTweetElement(tweet));
         }
     }
+    
+    $(".error").hide();
 
     $('#new-tweet').on('submit', (event) => {
         event.preventDefault();
         let charCount = $("textArea").val().length;
 
-        $(".error").hide();
         if (!charCount) {
-            $(".error").slideDown("slow").text("Invalid Submission: Not enough Characters.");
+            $(".error").slideDown("fast").text("Invalid Submission: Not enough Characters.");
         } else if (charCount > 140) {
-            $(".error").slideDown("slow").text("Invalid Submission: Too many characters.");
+            $(".error").slideDown("fast").text("Invalid Submission: Too many characters.");
         } else {
+            $(".error").hide();
             $.post('/tweets', $('#new-tweet').serialize(), () => {
                 loadTweets();
             })

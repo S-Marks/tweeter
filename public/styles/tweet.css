@@ -2,11 +2,12 @@
     padding: 5px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    background-color: white;
+    background-color: #dbf3f2;
 }
 
 .tweet article {
     border: 2px solid lightgrey;
+    background-color: white;
     border-radius: 5px;
     margin: 10px;
     padding: 5px;
