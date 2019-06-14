@@ -77,7 +77,8 @@ $(document).ready(function () {
             $.post('/tweets', $('#new-tweet').serialize(), () => {
                 loadTweets();
             })
-            $("textArea").val("")
+            $("textArea").val("");
+            $(this.querySelector(".counter").innerText = "140");
         }
     })
 
