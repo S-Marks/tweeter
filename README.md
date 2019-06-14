@@ -16,6 +16,11 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
+## Compose
 
 !["Screenshot of tweet compose box"](https://github.com/S-Marks/tweeter/blob/master/public/images/composeTweet.png)
+
+
+## Tweets
+
 !["Screenshot of tweets"](https://github.com/S-Marks/tweeter/blob/master/public/images/Tweets.png)
