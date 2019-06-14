@@ -43,14 +43,14 @@ $(document).ready(function () {
             .appendTo(header);
         const content = $("<section>").appendTo(user);
         $("<p>")
-        .text(tweetData.content.text)
-        .appendTo(content);
+            .text(tweetData.content.text)
+            .appendTo(content);
         $("<hr>").appendTo(user);
         const footer = $("<footer>").appendTo(user);
         $("<div>")
             .text(whatTime(tweetData.created_at))
             .appendTo(footer);
-            // $('<div> hello</div>').appendTo(footer)
+        // $('<div> hello</div>').appendTo(footer)
         $('<div> <img class="media" id="flag" src="/images/flag.png"><img class="media" id="retweet" src="/images/retweet.png"><img class="media" id="like" src="/images/like.png"></div>')
             .appendTo(footer);
         return user;
