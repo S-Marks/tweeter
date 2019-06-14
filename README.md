@@ -17,5 +17,5 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 
-!["Screenshot of tweet compose box"]()
-!["Screenshot of tweets"]()
+!["Screenshot of tweet compose box"](https://github.com/S-Marks/tweeter/blob/master/public/images/composeTweet.png)
+!["Screenshot of tweets"](https://github.com/S-Marks/tweeter/blob/master/public/images/Tweets.png)
