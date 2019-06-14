@@ -43,12 +43,15 @@ $(document).ready(function () {
             .appendTo(header);
         const content = $("<section>").appendTo(user);
         $("<p>")
-            .text(tweetData.content.text)
-            .appendTo(content);
+        .text(tweetData.content.text)
+        .appendTo(content);
+        $("<hr>").appendTo(user);
         const footer = $("<footer>").appendTo(user);
-        $("<hr>").appendTo(footer);
-        $("<span>")
+        $("<div>")
             .text(whatTime(tweetData.created_at))
+            .appendTo(footer);
+            // $('<div> hello</div>').appendTo(footer)
+        $('<div> <img class="media" id="flag" src="/images/flag.png"><img class="media" id="retweet" src="/images/retweet.png"><img class="media" id="like" src="/images/like.png"></div>')
             .appendTo(footer);
         return user;
     }
@@ -58,7 +61,7 @@ $(document).ready(function () {
             $(".tweet").prepend(createTweetElement(tweet));
         }
     }
-    
+
     $(".error").hide();
 
     $('#new-tweet').on('submit', (event) => {
@@ -74,6 +77,7 @@ $(document).ready(function () {
             $.post('/tweets', $('#new-tweet').serialize(), () => {
                 loadTweets();
             })
+            $("textArea").val("")
         }
     })
 

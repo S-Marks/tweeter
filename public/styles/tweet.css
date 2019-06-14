@@ -2,7 +2,7 @@
     padding: 5px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    background-color: #dbf3f2;
+    background-color: #f8ffff;
 }
 
 .tweet article {
@@ -16,7 +16,7 @@
 
 .tweet header {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     background-color: whitesmoke;
 }
 
@@ -31,8 +31,7 @@
     color: #626f7d
 }
 
-.tweet span {
-    margin-left: auto;
+.tweet div {
     color: grey;
 }
 
@@ -43,8 +42,15 @@
 
 .tweet footer {
     padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.tweet .media {
+    height: 25px;
+    width: 25px;
+    opacity: 0.2;
 }
 
-.tweet article:hover{
+.tweet article:hover, .media:hover{
     opacity: 1
 }

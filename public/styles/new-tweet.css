@@ -32,3 +32,17 @@
     float: right;
     padding: 5px;
 }
+
+.new-tweet input {
+    color: #004e3a;
+    padding: 10px;
+    border: 2px solid #55bbab;
+    background-color: #d2efeb;
+    border-radius: 5px;
+}
+
+.new-tweet input:hover {
+    color: #094037;
+    border: 2px solid #00c7a7;
+    background-color: #f1fffd;
+}
